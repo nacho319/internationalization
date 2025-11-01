@@ -299,71 +299,62 @@ a workable description while
 a number of attempts to specify another approach that implementers
 were to follow were all ignored by implementers.
 
-It is expected that any future minor versions will follow a similar
-approach, even though it is possible that a future minor
-version will adopt a different approach as long as the rules
-within {{RFC8178}}) are adhered to.   In any such case,
-the new minor version would have to be marked as updating or obsoleting
-this document.   Some issues relating to potential extensions within the
-framework specified in this document are dealt with in
-Appendices {{<INFO-casei}} and {{<INFO-norm}}.
+It is expected that any future minor versions will follow a similar approach,
+even though it is possible that a future minor version will adopt a different
+approach as long as the rules within {{RFC8178}}) are adhered to.   In any
+such case, the new minor version would have to be marked as updating or
+obsoleting this document.   Some issues relating to potential extensions
+within the framework specified in this document are dealt with in Appendices
+{{<INFO-casei}} and {{<INFO-norm}}.  **FIXME**
 
 
 # Changes Relative to RFC7530 {#CHG7530}
 
-This document follows the internationalization approach defined
-in RFC7530, with a number of significant changes listed
-below, all necessary to provide an updated treatment that can
-be used for all minor versions.
+This document follows the internationalization approach defined in RFC7530,
+with a number of significant changes listed below, all necessary to provide
+an updated treatment that can be used for all minor versions.
 
-The making this shift, the handling of internationalization specified
-in {{RFC7530}} is applied to all NFSv4 minor versions.
-No compatibility issues are expected to arise because all
-existing implementations follow the same approach to
-internationalization despite the large difference between {{RFC7530}}
-and what is specified in {{RFC8881}}.
+The making this shift, the handling of internationalization specified in {
+{RFC7530}} is applied to all NFSv4 minor versions. No compatibility issues
+are expected to arise because all existing implementations follow the same
+approach to internationalization despite the large difference between {
+{RFC7530}} and what is specified in {{RFC8881}}.
 
 The following changes were necessary:
 
 
-* Issues
-  relating to potential future minor versions
-  and protocol extensions are addressed in {{FUTURE}}.
+* Issues relating to potential future minor versions and protocol extensions
+  are addressed in {{FUTURE}}.
 
-* Changes made necessary by the shift from IDNA2003 to IDNA2008
-  have been made. The
-  intention is to maintain
-  compatibility with all existing implementations of all NFSv4 minor
-  versions.   Potential compatibility issues with regard to the IDNA
-  shift are discussed in {{OTHER-compat}}.
+* Changes made necessary by the shift from IDNA2003 to IDNA2008 have been
+  made. The intention is to maintain compatibility with all existing
+  implementations of all NFSv4 minor versions.   Potential compatibility
+  issues with regard to the IDNA shift are discussed in {{OTHER-compat}}.
 
-* There is more discussion of case-insensitive
-  handling of file names, with particular attention to the complexities
-  that can arise when multiple language conventions in these matters
-  need to be accommodated.  Because of the need to
-  accommodate these complexities, the protocol leaves these details
-  up to the server while the material in Appendices {{<INFO-casei-ex}}
-  and {{<INFO-casei-def}} provides
-  a helpful introduction to these issues.
+* There is more discussion of case-insensitive handling of file names, with
+  particular attention to the complexities that can arise when multiple
+  language conventions in these matters need to be accommodated.  Because of
+  the need to accommodate these complexities, the protocol leaves these
+  details up to the server while the material in Appendices 
+  {{<INFO-casei-ex}} and {{<INFO-casei-def}} provides a helpful introduction
+  to these issues. **FIXME**
 
-* There is additional material, dealing with the implications of
-  server-side internationalization-related file name processing for
-  clients' use of certain name caching techniques.  This
-  includes a discussion of options to deal with the current lack of
-  detailed information about the server (in
-  Sections {{<EQUIV-canon}} and {{<EQUIV-case}},
-  and options for handling this issue until more detailed information
-  can be made available to the client
-  (in {{EQUIV-clcache}})."
+* There is additional material, dealing with the implications of server-side
+  internationalization-related file name processing for clients' use of
+  certain name caching techniques.  This includes a discussion of options to
+  deal with the current lack of detailed information about the server
+  (in Sections {{<EQUIV-canon}} and {{<EQUIV-case}}, and options for handling
+  this issue until more detailed information can be made available to the
+  client(in {{EQUIV-clcache}})."
 
 * A discussion of the OPTIONAL attribute
   fs_charset_cap has been added.
 
 * A previous discussion of the behavior of certain file systems
   that could be construed as suggesting (even though the words
-  "SHOULD NOT were used, that it was valid for a
-  server to perform normalization-related processing on names
-  without rejecting names that are not valid UTF-8 strings.
+  "SHOULD NOT" were used, that it was valid for a server to perform
+   normalization-related processing on names without rejecting names that are
+   not valid UTF-8 strings.
 
   That text has now been deleted and other text clarifies that this
   is not valid behavior.
@@ -371,10 +362,9 @@ The following changes were necessary:
 
 # Limitations on Internationalization-Related Processing in the NFSv4 Context {#LIMITS}
 
-There are a number of noteworthy circumstances that limit the degree
-to which internationalization-related encoding and normalization-
-related restrictions can be made universal
-with regard to NFSv4 clients and servers:
+There are a number of noteworthy circumstances that limit the degree to which
+internationalization-related encoding and normalization- related restrictions
+can be made universal with regard to NFSv4 clients and servers:
 
 
 * The NFSv4 client is part of an extensive set of client-side software
@@ -468,14 +458,13 @@ potential interactions.
   both functions, by treating two strings as equivalent if they are
   canonically equivalent or differ only as to case.
 
-  See {{IMPL-formi}} for a discussion of implementing
-  string comparisons given the existence of such a common equivalence.
-  It is worth nothing that, when clients are made aware of server
-  string equivalence relations, using facilities such as those
-  described in Appendices {{<INFO-casei}} and {{<INFO-norm}}, the client and
-  server can use the same string equivalence relation, enabling
-  the previously necessary restrictions on client-side name caching
-  to be eliminated.
+  See {{IMPL-formi}} for a discussion of implementing string comparisons given
+  the existence of such a common equivalence. It is worth nothing that, when
+  clients are made aware of server string equivalence relations, using
+  facilities such as those described in Appendices {{<INFO-casei}} and {
+  {<INFO-norm}}, the client and server can use the same string equivalence
+  relation, enabling the previously necessary restrictions on client-side
+  name caching to be eliminated.  **FIXME**
 
 
 # Handling of String Equivalence {#EQUIV}
@@ -1287,39 +1276,32 @@ However, our treatment of these issues, while not inconsistent with
 that in {{UNICODE-CASEM}}, differs significantly for a number of
 reasons:
 
-* Our primary focus is on case-insensitive string comparison rather
-  than with case mapping per se.
-  While such comparison is natural for the client and allowed for
-  servers, its greater flexibility makes it important to understand
-  its capabilities in dealing with potentially troublesome issues in
-  providing case-insensitive file name handling.
+* Our primary focus is on case-insensitive string comparison rather than with
+  case mapping per se. While such comparison is natural for the client and
+  allowed for servers, its greater flexibility makes it important to
+  understand its capabilities in dealing with potentially troublesome issues
+  in providing case-insensitive file name handling.
 
-* Because a case mapping model forces the specification of a single
-  case mapping result when there are multiple potentially valid results,
-  there are inevitably cases in which the result chosen is
-  inappropriate for some users.  These are cases in which F-type
-  and S-type mappings are present and in which C-type and T-type
-  mappings conflict.  Normally, an appropriate choice is selected by
-  use of the locale, but in a file system environment, valid locale
-  information might not be present.   As a result,
-  case-insensitive string
-  comparison, which does not force such case mapping choices,
-  will be more
-  desirable since it allows construction of sets of equivalent
-  strings
-  based on multiple mappings which is not possible when case
-  mapping is the goal.
+* Because a case mapping model forces the specification of a single case
+  mapping result when there are multiple potentially valid results, there are
+  inevitably cases in which the result chosen is inappropriate for some
+  users.  These are cases in which F-type and S-type mappings are present and
+  in which C-type and T-type mappings conflict.  Normally, an appropriate
+  choice is selected by use of the locale, but in a file system environment,
+  valid locale information might not be present.   As a result,
+  case-insensitive string comparison, which does not force such case mapping
+  choices, will be more desirable since it allows construction of sets of
+  equivalent strings based on multiple mappings which is not possible when
+  case mapping is the goal.
 
-The examples below present common situations that go beyond the
-simple invertible case mappings of Latin characters and the
-straightforward
-adaptation of that model to Greek and Cyrillic.  In EX4 and EX5
-we have case-based sets of equivalent strings including multi-character
-strings not derived from canonical equivalences while for EX7 and EX8
-all multi-character strings are derived from canonical
-equivalences.  In addition, EX1, EX2, EX3 and EX6 discuss other
-situations
-in which a set of equivalent strings has more than two elements.
+The examples below present common situations that go beyond the simple
+invertible case mappings of Latin characters and the straightforward
+adaptation of that model to Greek and Cyrillic.  In EX4 and EX5 we have
+case-based sets of equivalent strings including multi-character strings not
+derived from canonical equivalences while for EX7 and EX8 all multi-character
+strings are derived from canonical equivalences.  In addition, EX1, EX2, EX3
+and EX6 discuss other situations in which a set of equivalent strings has
+more than two elements.
 
 {: type="EX%d:"}
 1. Certain digraph characters such LATIN SMALL LETTER DZ (U+01F3)
@@ -1331,14 +1313,11 @@ in which a set of equivalent strings has more than two elements.
    string comparison has no problem in treating these three
    characters as within same set of equivalent characters.
 
-    This set of
-    equivalent strings can be derived using only C-type mappings.
-    The possibility of
-    mapping these characters to the two-character sequences they
-    represent is not a troublesome
-    issue since that would be derived from a compatibility equivalence,
-    rather than a canonical equivalence, and there is no F-type
-    mapping making it an option.
+    This set of equivalent strings can be derived using only C-type mappings.
+    The possibility of mapping these characters to the two-character
+    sequences they represent is not a troublesome issue since that would be
+    derived from a compatibility equivalence, rather than a canonical
+    equivalence, and there is no F-type mapping making it an option.
 
 2. To deal with the case of  the OHM SIGN (U+2126) which is
    essentially identical to the GREEK CAPITAL LETTER OMEGA (U+03A9),
@@ -1346,33 +1325,25 @@ in which a set of equivalent strings has more than two elements.
    SIGN (U+2126), GREEK CAPITAL LETTER OMEGA (U+03A9), and
    GREEK SMALL LETTER OMEGA (U+03C9).
 
-   This set of
-   equivalent strings can be derived using only C-type mappings.
-   Both OHM
-   SIGN (U+2126), and GREEK CAPITAL LETTER OMEGA (U+03A9)
-   lowercase to GREEK  LETTER OMEGA (U+03C9), while that
-   character only uppercases to GREEK CAPITAL LETTER OMEGA (U+03A9).
+   This set of equivalent strings can be derived using only C-type mappings.
+   Both OHM SIGN (U+2126), and GREEK CAPITAL LETTER OMEGA (U+03A9) lowercase
+   to GREEK  LETTER OMEGA (U+03C9), while that character only uppercases to
+   GREEK CAPITAL LETTER OMEGA (U+03A9).
 
-3. To deal with the case of the ANGSTROM SIGN (U+212B) which is
-   essentially identical to LATIN CAPITAL LETTER A WITH RING
-   ABOVE (U+00C5), one can construct a set of equivalent
-   strings consisting
-   of ANGSTROM SIGN (U+212B), LATIN CAPITAL LETTER A WITH RING
-   ABOVE (U+00C5), LATIN SMALL LETTER A WITH RING
-   ABOVE (U+00E5), together with the two-character sequences
-   involving LATIN CAPITAL LETTER A (U+0041) or
-   LATIN SMALL LETTER A (U+0061) followed by COMBINING RING
-   ABOVE (U+030A).
+3. To deal with the case of the ANGSTROM SIGN (U+212B) which is essentially
+identical to LATIN CAPITAL LETTER A WITH RING ABOVE (U+00C5), one can
+construct a set of equivalent strings consisting of ANGSTROM SIGN
+(U+212B), LATIN CAPITAL LETTER A WITH RING ABOVE (U+00C5), LATIN SMALL LETTER
+A WITH RING ABOVE (U+00E5), together with the two-character sequences
+involving LATIN CAPITAL LETTER A (U+0041) or LATIN SMALL LETTER A
+(U+0061) followed by COMBINING RING ABOVE (U+030A).
 
-   This set of
-   equivalent strings can be derived using only C-type mappings together
-   with the ability to map characters to canonically equivalent
-   strings.
-   Both ANGSTROM
-   SIGN (U+212B), and LATIN CAPITAL LETTER A WITH RING
-   ABOVE (U+00C5) lowercase to LATIN SMALL LETTER A WITH RING
-   ABOVE (U+00E5), while that character only uppercases to
-   CAPITAL LETTER A WITH RING ABOVE (U+00C5).
+   This set of equivalent strings can be derived using only C-type mappings
+   together with the ability to map characters to canonically equivalent
+   strings. Both ANGSTROM SIGN (U+212B), and LATIN CAPITAL LETTER A WITH RING
+   ABOVE (U+00C5) lowercase to LATIN SMALL LETTER A WITH RING ABOVE
+   (U+00E5), while that character only uppercases to CAPITAL LETTER A WITH
+   RING ABOVE (U+00C5).
 
 4. In some cases, case mapping of a single character will result
    in a multi-character string.   For example, the German character
@@ -1402,60 +1373,48 @@ in which a set of equivalent strings has more than two elements.
    rather than by code specifically written to deal with this
    particular issue, which might hard to maintain.
 
-5. Other ligatures, such as LATIN SMALL LIGATURE FFL (U+FB04), could
-   be handled similarly by this algorithm, if there were felt
-   to be a need to do
-   so. However, because the decomposition of this character into the
-   string consisting of the three letters LATIN SMALL LETTER F (U+0066),
-   LATIN SMALL LETTER F (U+0066), LATIN SMALL LETTER L (U+006C),
-   is a compatibility equivalence, and the F-type mapping of this
-   ligature to the three constituent characters is to be treated
-   as optional,
-   implementations can choose either to treat this character as
-   having no uppercase equivalent or treat it as part of larger
-   set of equivalent strings including "ffl", "ffL", "fFl", etc.).
+5. Other ligatures, such as LATIN SMALL LIGATURE FFL (U+FB04), could be
+handled similarly by this algorithm, if there were felt to be a need to do
+so. However, because the decomposition of this character into the string
+consisting of the three letters LATIN SMALL LETTER F (U+0066), LATIN SMALL
+LETTER F (U+0066), LATIN SMALL LETTER L (U+006C), is a compatibility
+equivalence, and the F-type mapping of this ligature to the three constituent
+characters is to be treated as optional, implementations can choose either to
+treat this character as having no uppercase equivalent or treat it as part of
+larger set of equivalent strings including "ffl", "ffL", "fFl", etc.).
 
 6. The character COMBINING GREEK YPOGEGRAMMENI (U+0345), also known as
    "iota-subscript" requires special handling when uppercasing and
-   lowercasing.  While the description of the appropriate handling for
-   this character, in the case mapping section, is focused on multi-
-   character sequences representing diphthongs, case-insensitive
-   comparisons
-   can be performed without consideration of multi-character
-   sequences.  This can be done by  assigning COMBINING GREEK
-   YPOGEGRAMMENI (U+0345), GREEK SMALL LETTER IOTA (U+03B9),
-   and GREEK CAPITAL LETTER IOTA (U+0399) to the same equivalence
-   class, even though the first of these is a combining character
-   and the others are not.
+    lowercasing.  While the description of the appropriate handling for this
+    character, in the case mapping section, is focused on multi- character
+    sequences representing diphthongs, case-insensitive comparisons can be
+    performed without consideration of multi-character sequences.  This can
+    be done by  assigning COMBINING GREEK YPOGEGRAMMENI (U+0345), GREEK SMALL
+    LETTER IOTA (U+03B9), and GREEK CAPITAL LETTER IOTA (U+0399) to the same
+    equivalence class, even though the first of these is a combining
+    character and the others are not.
 
 7. In some cases, context-dependent case mapping is required.  For
    example, GREEK CAPITAL LETTER SIGMA (U+03A3) lowercases to
    GREEK SMALL LETTER SIGMA (U+03C3) if it is followed by another
    letter and to GREEK SMALL LETTER FINAL SIGMA (U+03C2) if it is not.
 
-   Despite this, case-insensitive comparisons can be
-   implemented, by considering
-   all of these characters as part of the same equivalence class,
-   without any context-dependence, and this set of equivalent
-   strings can be
-   derived using only
-   C-type mappings.
+   Despite this, case-insensitive comparisons can be implemented, by
+   considering all of these characters as part of the same equivalence class,
+   without any context-dependence, and this set of equivalent strings can be
+   derived using only C-type mappings.
 
-8. In most languages written using Latin characters, the uppercase
-   and lowercase varieties of the letter "I" map to one another.
-   In a number of Turkic languages, there
-   are two distinct characters derived from "I" which differ only
-   with regard to the presence or absence of a dot so that
-   there are both capital and small i's with each having dotted
-   and dotless variants.
-   Within such languages, the dotted and dotless I's represent
-   different vowel sounds and are treated as separate characters
-   with respect to case mapping.  The uppercase
-   of LATIN SMALL LETTER I (U+0069) is LATIN CAPITAL LETTER I WITH
-   DOT ABOVE (U+0130), rather than LATIN CAPITAL LETTER I (U+0049).
-   Similarly the lowercase of LATIN CAPITAL LETTER I (U+0049) is
-   LATIN SMALL LETTER DOTLESS I (U+0131) rather than LATIN SMALL
-   LETTER I (U+0069).
+8. In most languages written using Latin characters, the uppercase and
+lowercase varieties of the letter "I" map to one another. In a number of
+Turkic languages, there are two distinct characters derived from "I" which
+differ only with regard to the presence or absence of a dot so that there are
+both capital and small i's with each having dotted and dotless variants.
+Within such languages, the dotted and dotless I's represent different vowel
+sounds and are treated as separate characters with respect to case mapping.
+The uppercase of LATIN SMALL LETTER I (U+0069) is LATIN CAPITAL LETTER I WITH
+DOT ABOVE (U+0130), rather than LATIN CAPITAL LETTER I (U+0049). Similarly
+the lowercase of LATIN CAPITAL LETTER I (U+0049) is LATIN SMALL LETTER
+DOTLESS I (U+0131) rather than LATIN SMALL LETTER I (U+0069).
 
    When doing case mapping, the server must choose to uppercase
    LATIN SMALL LETTER I (U+0069) to either  LATIN CAPITAL LETTER I
@@ -1469,15 +1428,12 @@ in which a set of equivalent strings has more than two elements.
    dealt with based on a locale but, in a file system environment,
    no locale information is likely to be available.
 
-   In the context of case-insensitive string comparison, it is
-   possible to create a larger set of equivalent strings, including
-   all of
-   the letters LATIN SMALL LETTER I (U+0069),
-   LATIN CAPITAL LETTER I (U+0049),
-   LATIN CAPITAL LETTER I WITH DOT ABOVE (U+0130), LATIN SMALL LETTER
-   DOTLESS I (U+0131) together with the two-character string consisting
-   of LATIN CAPITAL LETTER I (U+0049) followed by COMBINING DOT
-   ABOVE (U+0307).
+   In the context of case-insensitive string comparison, it is possible to
+   create a larger set of equivalent strings, including all of the letters
+   LATIN SMALL LETTER I (U+0069), LATIN CAPITAL LETTER I (U+0049), LATIN
+   CAPITAL LETTER I WITH DOT ABOVE (U+0130), LATIN SMALL LETTER DOTLESS I
+   (U+0131) together with the two-character string consisting of LATIN
+   CAPITAL LETTER I (U+0049) followed by COMBINING DOT ABOVE (U+0307).
 
 
 ## Defining Case-Insensitive Processing of File Names {#INFO-casei-def}
@@ -1492,40 +1448,33 @@ name caching, might need to be able to provide
 case-insensitive name comparisons, irrespective of whether the
 server handling is case-preserving or not.
 
-Because case-insensitive name comparisons are not always as
-straightforward
-as the above example suggests, the client, if it is to emulate
-the server's name handling, would need information about how certain
-cases are to be dealt with.  In cases in which that information is
-unavailable, the client needs to avoid making assumptions about the
-server's handling, since it will be unaware of the Unicode version
-implemented by the server, or many of the details of specific issues
-that might need to be addressed differently by different server
-file systems in implementing
-case-insensitive name handling.
+Because case-insensitive name comparisons are not always as straightforward as
+the above example suggests, the client, if it is to emulate the server's name
+handling, would need information about how certain cases are to be dealt
+with.  In cases in which that information is unavailable, the client needs to
+avoid making assumptions about the server's handling, since it will be
+unaware of the Unicode version implemented by the server, or many of the
+details of specific issues that might need to be addressed differently by
+different server file systems in implementing case-insensitive name
+handling.
 
-Many of the problematic issues with regard to the case-insensitive
-handling of names are discussed in Section 5.18 of the Unicode
-Standard {{UNICODE-CASEM}} which deals with case mapping.
-While we need to address all of these issues as well, our approach
-will not be exactly the same.
+Many of the problematic issues with regard to the case-insensitive handling of
+names are discussed in Section 5.18 of the Unicode Standard 
+{{UNICODE-CASEM}} which deals with case mapping. While we need to address all
+of these issues as well, our approach will not be exactly the same.
 
-* Since the client would only need to be doing case-insensitive
-  comparisons,
-  issues
-  that apply only to uppercasing or lowercasing do not have the same
+* Since the client would only need to be doing case-insensitive comparisons,
+  issues that apply only to uppercasing or lowercasing do not have the same
   significance.
 
-* Many clients will have to operate correctly even in the absence
-  of detailed information about the specifics of server-side
-  case-mapping
-  or the version of Unicode implemented by the server.
+* Many clients will have to operate correctly even in the absence of detailed
+  information about the specifics of server-side case-mapping or the version
+  of Unicode implemented by the server.
 
-* Clients will have to accommodate server behaviors not anticipated
-  by the Unicode Specification since it might be that neither the server
-  nor the
-  client would have any relevant
-  locale knowledge when file names are processed.
+* Clients will have to accommodate server behaviors not anticipated by the
+  Unicode Specification since it might be that neither the server nor the
+  client would have any relevant locale knowledge when file names are
+  processed.
 
 Another source of information about case-folding, and indirectly about
 case-insensitive comparisons, is the case-folding text file which
@@ -1566,15 +1515,12 @@ as of one of four types:
   item EX8.
 
 While the case mapping section does discuss case-insensitive string
-comparisons,
-and describes a procedure for constructing equivalence classes of
-Unicode characters, the description does not deal clearly with
-the effect of F-type mappings.  There are a number of problems with
-dealing with F-type mappings for case folding and basing
-case-insensitive string comparisons on
-those mappings, particularly in
-situations, such as file systems, in which extensive processing of
-strings is unlikely to be practical.
+comparisons, and describes a procedure for constructing equivalence classes
+of Unicode characters, the description does not deal clearly with the effect
+of F-type mappings.  There are a number of problems with dealing with F-type
+mappings for case folding and basing case-insensitive string comparisons on
+those mappings, particularly in situations, such as file systems, in which
+extensive processing of strings is unlikely to be practical.
 
 
 * Mappings from single characters to multi-character strings, are,
@@ -1589,16 +1535,13 @@ strings is unlikely to be practical.
   especially since such sequences might overlap in
   complicated ways.
 
-* Case foldings which map single characters to multi-character
-  sequences (see item EX4 below for an important example), would
-  give rise to very large sets of strings.  This is because of the
-  invertibility of case mappings when
-  used to determine case-insensitive string equivalence.
-  For example, a string of eight copies
-  of the letter S would give rise to a set of 256 equivalent
-  strings plus over two thousand
-  others when the German SHARP S characters discussed
-  in item EX4 are included.
+* Case foldings which map single characters to multi-character sequences
+  (see item EX4 below for an important example), would give rise to very
+  large sets of strings.  This is because of the invertibility of case
+  mappings when used to determine case-insensitive string equivalence. For
+  example, a string of eight copies of the letter S would give rise to a set
+  of 256 equivalent strings plus over two thousand others when the German
+  SHARP S characters discussed in item EX4 are included.
 
 Despite these potential difficulties, case mappings involving
 multi-character sequences can be reversed when used as a basis for
@@ -1606,27 +1549,22 @@ case-insensitive string comparisons and incorporated into
 a set of equivalence classes on name strings, as described below.
 
 
-* Case-insensitive servers MAY do either case-mapping to a chosen
-  case (the non-case-preserving case),
-  or case-insensitive string comparisons when providing a
-  case-preserving
-  implementation.  In either case, the server MAY include F-type mappings,
-  which map a single character to a multi-character string.   However,
-  only the case in which it is doing case-insensitive string
-  comparison will
-  it use the inverse of F-type mappings, in which a multi-character
-  string is mapped to a single character of a different case
+* Case-insensitive servers MAY do either case-mapping to a chosen case
+  (the non-case-preserving case), or case-insensitive string comparisons when
+  providing a case-preserving implementation.  In either case, the server MAY
+  include F-type mappings, which map a single character to a multi-character
+  string.   However, only the case in which it is doing case-insensitive
+  string comparison will it use the inverse of F-type mappings, in which a
+  multi-character string is mapped to a single character of a different case
 
-  In these cases, the server can choose to use either a C-type mapping
-  or an F-type mapping, or both, when both exist.  Similarly
-  the server may choose to implement the C-type mappings of LATIN
-  CAPITAL LETTER I to LATIN SMALL LETTER I and vice versa, the
-  corresponding T-type mappings or both, although using only
-  the T-type mappings is undesirable,
-  unless there is a means of informing the client that
-  it has been chosen, since users might reasonably expect
-  LATIN CAPITAL LETTER I and LATIN SMALL LETTER I to treated
-  identically in a case-insensitive file system.
+  In these cases, the server can choose to use either a C-type mapping or an
+  F-type mapping, or both, when both exist.  Similarly the server may choose
+  to implement the C-type mappings of LATIN CAPITAL LETTER I to LATIN SMALL
+  LETTER I and vice versa, the corresponding T-type mappings or both,
+  although using only the T-type mappings is undesirable, unless there is a
+  means of informing the client that it has been chosen, since users might
+  reasonably expect LATIN CAPITAL LETTER I and LATIN SMALL LETTER I to
+  treated identically in a case-insensitive file system.
 
 * The client, when informed of the details of the client's handling
   of case, has the ability to efficiently implement an appropriate
@@ -1640,13 +1578,11 @@ a set of equivalence classes on name strings, as described below.
 
 ## Providing Information about Server Case-Insensitive Comparisons {#INFO-casei}
 
-It is possible to provide, as part of a valid NFSv4 extension,
-information sufficient to allow the client to be aware of, and
-potentially to emulate, case-insensitive comparisons implemented by
-the server.
-Such information would take the form of an OPTIONAL read-only per-fs
-file attribute.
-The information listed below would need to be included.
+It is possible to provide, as part of a valid NFSv4 extension, information
+sufficient to allow the client to be aware of, and potentially to emulate,
+case-insensitive comparisons implemented by the server. Such information
+would take the form of an OPTIONAL read-only per-fs file attribute. The
+information listed below would need to be included.
 
 Whenever the value provided for a particular file system is invalid in
 some way, the client is justified in ignoring the attribute and
@@ -1656,15 +1592,13 @@ acting as if it were not supported on that file system
 * An integer denoting the version of Unicode on which the
   implemented case-equivalence relation was based.
 
-  The value zero would be available for use to indicate that
-  the version is not relevant, either because the file system
-  in question is UTF8-unaware, or because there is no
-  server processing based on this version  when the server is not
-  case-insensitive and does not provide any normalization-related
-  services.
+  The value zero would be available for use to indicate that the version is
+  not relevant, either because the file system in question is UTF8-unaware,
+  or because there is no server processing based on this version  when the
+  server is not case-insensitive and does not provide any
+  normalization-related services.
 
-  If the value zero is received on a case-insensitive file system,
-  the
+  If the value zero is received on a case-insensitive file system, the
   attribute value is considered invalid.
 
 * Information regarding the special mapping for languages in
@@ -1738,22 +1672,19 @@ Each charfoldtype4 would contain the following:
   not exist for the associated character, the attribute is
   considered invalid.
 
-If there are characters within the specified Unicode version
-that have S-type or F-type mappings specified and are not included
-in the array, then the equivalence set
-memberships for that character depend only on C-type
+If there are characters within the specified Unicode version that have S-type
+or F-type mappings specified and are not included in the array, then the
+equivalence set memberships for that character depend only on C-type
 mappings, if present.
 
 
 ## Providing Information about Server Form-Insensitive Comparisons {#INFO-norm}
 
-It is possible to provide, as part of a valid NFSv4 extension,
-information sufficient to allow the client to be aware of, and
-potentially to emulate, form-insensitive comparisons implemented by
-the server.
-Such information would take the form of an OPTIONAL read-only per-fs
-file attribute.
-The following information would need to be included.
+It is possible to provide, as part of a valid NFSv4 extension, information
+sufficient to allow the client to be aware of, and potentially to emulate,
+form-insensitive comparisons implemented by the server. Such information
+would take the form of an OPTIONAL read-only per-fs file attribute. The
+following information would need to be included.
 
 * An integer denoting the version of Unicode on which the
   implemented canonical equivalence was based.
@@ -1809,23 +1740,20 @@ each set of equivalent strings:
 2. That each such set contains at least one single-character
    string.
 
-Although other sources are possible (see items EX2 and EX3 in
-{{INFO-casei-ex}}), an important reason that
-multi-character sequences appear in case-insensitive
-sets of equivalent strings result from
-canonical decomposition of one or more precomposed characters.
-In such cases, elements of a case-insensitive
-equivalence class will include multiple characters because of the
-canonical decomposition of a single character.
+Although other sources are possible (see items EX2 and EX3 in{
+{INFO-casei-ex}}), an important reason that multi-character sequences appear
+in case-insensitive sets of equivalent strings result from canonical
+decomposition of one or more precomposed characters. In such cases, elements
+of a case-insensitive equivalence class will include multiple characters
+because of the canonical decomposition of a single character.
 
-While the algorithm presented in this section can deal with
-certain case-based equivalences deriving from canonical decomposition,
-it is not capable of providing general handling of the combination
-of canonical equivalence and case-based equivalence.   While this can
-be addressed by normalizing strings before doing case-insensitive
-comparison, it is more efficient to do a general form-insensitive
-and case-insensitive string comparison in a single step as described
-in {{IMPL-formi}}.
+While the algorithm presented in this section can deal with certain case-based
+equivalences deriving from canonical decomposition, it is not capable of
+providing general handling of the combination of canonical equivalence and
+case-based equivalence.   While this can be addressed by normalizing strings
+before doing case-insensitive comparison, it is more efficient to do a
+general form-insensitive and case-insensitive string comparison in a single
+step as described in {{IMPL-formi}}.
 
 The following tables would be used by the comparison algorithm
 presented below.
@@ -1834,61 +1762,51 @@ presented below.
 * For each possible character value, the associated set of equivalent
   strings for case-insensitive comparison would be identified
 
-* For each such set, the hash value contribution will
-  be provided.  In the case of set of equivalent strings that do
-  not include
-  multi-character strings including set that only
-  include a
-  single (single-character) member, this will be the hash
-  value contribution of one
-  particular variant (usually lower case) of the character
+* For each such set, the hash value contribution will be provided.  In the
+  case of set of equivalent strings that do not include multi-character
+  strings including set that only include a single (single-character) member,
+  this will be the hash value contribution of one particular variant
+  (usually lower case) of the character
 
-* In the case of set of equivalent string that do include
-  multi-character
-  strings, the hash value contribution needs to be equivalent to the
-  combined contribution of each character within the multi-character
-  string.  In addition, for each such equivalence class, the
-  length of the multicharacter string will be provided together with a
-  pointer to an array describing the multi-character string, most
-  probably presenting each character by a value of a case-equivalent
-  character, most probably the lower-case variant.
+* In the case of set of equivalent string that do include multi-character
+  strings, the hash value contribution needs to be equivalent to the combined
+  contribution of each character within the multi-character string.  In
+  addition, for each such equivalence class, the length of the multicharacter
+  string will be provided together with a pointer to an array describing the
+  multi-character string, most probably presenting each character by a value
+  of a case-equivalent character, most probably the lower-case variant.
 
 Case-insensitive comparison proceeds as follows:
 
 
-* Implementation of case-insensitive name comparisons will typically
-  require a case-insensitive name hash using the tables described
-  above.   If such a hash value is kept for all cached names,
-  comparisons
-  of hashes can be used instead of the detailed comparison set forth
-  below.  Using such hash comparisons, a large set of potentially
-  equivalent names
-  can be excluded based on the occurrence of hash mismatches, since
-  case-equivalent names would have the same hash value.
+* Implementation of case-insensitive name comparisons will typically require a
+  case-insensitive name hash using the tables described above.   If such a
+  hash value is kept for all cached names, comparisons of hashes can be used
+  instead of the detailed comparison set forth below.  Using such hash
+  comparisons, a large set of potentially equivalent names can be excluded
+  based on the occurrence of hash mismatches, since case-equivalent names
+  would have the same hash value.
 
-* For names with matching hash values, a detailed case-insensitive
-  comparison will be necessary.   This can proceed character-by-
-  character or byte-by-byte.  However, in the byte-by-byte case,
-  processing in the event of a mismatch must start at the start
-  of the current character, rather than the byte at which the
-  difference was detected.
+* For names with matching hash values, a detailed case-insensitive comparison
+  will be necessary.   This can proceed character-by- character or
+  byte-by-byte.  However, in the byte-by-byte case, processing in the event
+  of a mismatch must start at the start of the current character, rather than
+  the byte at which the difference was detected.
 
-* In cases in which there is a mismatch, the associated equivalence
-  classes will be compared.  When these are identical, indicating the
-  case equivalence of the two characters, the comparison of the two
-  strings continues at the next character of each string.
+* In cases in which there is a mismatch, the associated equivalence classes
+  will be compared.  When these are identical, indicating the case
+  equivalence of the two characters, the comparison of the two strings
+  continues at the next character of each string.
 
-* When the two equivalence classes are not identical, further
-  comparisons to determine if a single character within one
-  string matches (except for case) a multi-character string
-  within the other.  For
-  each of two equivalence classes being compared that include
-  a multi-character string, the check below must be made to determine
-  whether the multi-character string at the corresponding position
-  of the other string being compared, is within the
-  current equivalence class.   If neither of the two equivalence
-  classes include multi-character strings, the comparison terminates
-  with a mismatch indication.
+* When the two equivalence classes are not identical, further comparisons to
+  determine if a single character within one string matches (except for case)
+  a multi-character string within the other.  For each of two equivalence
+  classes being compared that include a multi-character string, the check
+  below must be made to determine whether the multi-character string at the
+  corresponding position of the other string being compared, is within the
+  current equivalence class.   If neither of the two equivalence classes
+  include multi-character strings, the comparison terminates with a mismatch
+  indication.
 
 * For each equivalence class that does include a multi-character
   string (there might be one or two), a scan needs to be made to see
@@ -1910,156 +1828,138 @@ This section deals with two varieties of form-insensitive string
 comparison:
 
 
-* Providing a comparison function which is form-insensitive only.  For
-  any string, whether normalized or not, this function will determine it
-  to be equivalent to all canonically equivalent strings,
-  including but not
+* Providing a comparison function which is form-insensitive only.  For any
+  string, whether normalized or not, this function will determine it to be
+  equivalent to all canonically equivalent strings, including but not
   limited, to the normalized forms NFC and NFD
 
 * Providing a comparison function which is both form-insensitive and
-  case-insensitive.  This function will determine strings that only
-  differ in case to be equal but will also be form-insensitive, as
-  described above.
+  case-insensitive.  This function will determine strings that only differ in
+  case to be equal but will also be form-insensitive, as described above.
 
 The non-normative guidance provided in this Appendix is intended to
-be helpful in dealing with two distinct implementation areas:
+be helpful in dealing with two distinct implementation areas: **FIXME**
 
 
-* Implementation of server-side file systems intended to be accessed
-  as UTF8-aware file systems
-  using NFSv4 protocols.   While it is often the case that such
-  file systems are developed by separate organizations from those
-  concerned with NFSv4 server development, the internationalization-
-  related requirements specified in this document must be adhered to
-  for successful inter-operation when using UTF8-aware file systems,
-  making this implementation guidance
-  apropos despite any potential organizational barriers.
+* Implementation of server-side file systems intended to be accessed as
+  UTF8-aware file systems using NFSv4 protocols.   While it is often the case
+  that such file systems are developed by separate organizations from those
+  concerned with NFSv4 server development, the internationalization- related
+  requirements specified in this document must be adhered to for successful
+  inter-operation when using UTF8-aware file systems, making this
+  implementation guidance apropos despite any potential organizational
+  barriers.
 
 * Implementation of NFSv4 clients that might need to provide matching
   internationalization-related handling for reason discussed in
   {{EQUIV-clcache}}.
 
-There are three basic reasons that two strings being compared
-might be canonically equivalent even though not identical. For
-each such reason, the implementation will be similar in the
-cases in which form-insensitive comparison (only) is being done
-and in which the comparison is both case-insensitive and form-
-insensitive.
+There are three basic reasons that two strings being compared might be
+canonically equivalent even though not identical. For each such reason, the
+implementation will be similar in the cases in which form-insensitive
+comparison (only) is being done and in which the comparison is both
+case-insensitive and form- insensitive.
 
 
-* Two strings may differ only because each has a different one of two
-  code points that are essentially the same. Three code points
-  assigned to represent units, are essentially equivalent to the
-  character denoting those units.  For example, the OHM SIGN (U+2126)
-  is essentially identical to the GREEK CAPITAL LETTER OMEGA (U+03A9)
-  as MICRO SIGN (U+00B5) is to GREEK SMALL LETTER MU (U+03BC) and
-  ANGSTROM SIGN (U+212B) is to
-  LATIN CAPITAL LETTER A WITH RING ABOVE (U+00C5).
+* Two strings may differ only because each has a different one of two code
+  points that are essentially the same. Three code points assigned to
+  represent units, are essentially equivalent to the character denoting those
+  units.  For example, the OHM SIGN (U+2126) is essentially identical to the
+  GREEK CAPITAL LETTER OMEGA (U+03A9) as MICRO SIGN (U+00B5) is to GREEK
+  SMALL LETTER MU (U+03BC) and ANGSTROM SIGN (U+212B) is to LATIN CAPITAL
+  LETTER A WITH RING ABOVE (U+00C5).
 
-  As discussed in items EX2 and EX3 in {{INFO-casei-ex}}, it
-  is possible to adjust for this situation using tables designed to
-  resolve case-insensitive equivalence, essentially treating the
-  unit symbols as an additional case variant, essentially
-  ignoring the fact that the
-  graphic representation is the same.  As a result, those doing string
-  comparisons that are both form-insensitive and case-insensitive do
-  not need to address this issue as part of form-insensitivity, since
-  it would be dealt with by existing case-insensitive comparison logic.
+  As discussed in items EX2 and EX3 in {{INFO-casei-ex}}, it is possible to
+  adjust for this situation using tables designed to resolve case-insensitive
+  equivalence, essentially treating the unit symbols as an additional case
+  variant, essentially ignoring the fact that the graphic representation is
+  the same.  As a result, those doing string comparisons that are both
+  form-insensitive and case-insensitive do not need to address this issue as
+  part of form-insensitivity, since it would be dealt with by existing
+  case-insensitive comparison logic.
 
-  Where there is no case-insensitive comparison logic, this function
-  needs to be performed using similar tables whose primary function
-  is to provide the decomposition of precomposed characters, as
-  described in {{FORMI-table}}.
+  Where there is no case-insensitive comparison logic, this function needs to
+  be performed using similar tables whose primary function is to provide the
+  decomposition of precomposed characters, as described in {{FORMI-table}}.
 
-* Two strings may differ in that one has the decomposed form
-  consisting of a base
-  character and an associated combining character while the other has
-  a precomposed character equivalent.
+* Two strings may differ in that one has the decomposed form consisting of a
+  base character and an associated combining character while the other has a
+  precomposed character equivalent.
 
-  Although, as discussed in items EX3 in {{INFO-casei-ex}},
-  it is possible to use tables designed to resolve case-insensitive
-  equivalence by providing as possible case-insensitively equivalent
-  string, multi-character string providing the decomposition of
-  precomposed characters, special logic to do so is only necessary
-  when the decomposition is not a canonical one, i.e. it is a
-  compatibility equivalence.
+  Although, as discussed in items EX3 in {{INFO-casei-ex}}, it is possible to
+  use tables designed to resolve case-insensitive equivalence by providing as
+  possible case-insensitively equivalent string, multi-character string
+  providing the decomposition of precomposed characters, special logic to do
+  so is only necessary when the decomposition is not a canonical one, i.e. it
+  is a compatibility equivalence.
 
-  In general, the table used to do comparisons, whether case-sensitive
-  or not, needs to provide information about the canonical
-  decomposition of precomposed characters.  See {{FORMI-table}} for details.
+  In general, the table used to do comparisons, whether case-sensitive or not,
+  needs to provide information about the canonical decomposition of
+  precomposed characters.  See {{FORMI-table}} for details.
 
-* Two strings may differ in that the strings consist of
-  combining characters that have the same effect differ as to the
-  order in which the characters appear.  For example, a letter
-  might be followed by a combining character above and a combining
-  character below and the combining characters might appear in
-  different orders.
+* Two strings may differ in that the strings consist of combining characters
+  that have the same effect differ as to the order in which the characters
+  appear.  For example, a letter might be followed by a combining character
+  above and a combining character below and the combining characters might
+  appear in different orders.
 
-  There is no way this function could be performed within code
-  primarily devoted to case-insensitive equivalence.  However, this
-  function could be added to implementations, providing both sorts of
-  equivalence once it is determined that the base characters are
-  case-equivalent while there is a difference of combining characters
-  in to be resolved.
-  (See {{FORMI-combining}} for a discussion of how sets of combining
-  characters can be compared).
+  There is no way this function could be performed within code primarily
+  devoted to case-insensitive equivalence.  However, this function could be
+  added to implementations, providing both sorts of equivalence once it is
+  determined that the base characters are case-equivalent while there is a
+  difference of combining characters in to be resolved.(See 
+  {{FORMI-combining}} for a discussion of how sets of combining characters can
+  be compared).
 
 ### Name Hashes {#FORMI-hash}
 
-We discussed in {{IMPL-casei}} the construction of a
-case-insensitive file name hash.   While such a hash could also
-be form-insensitive if the hash contribution of every
-pre-composed character matched the combined contribution of the
-characters that it decomposes into.
+We discussed in {{IMPL-casei}} the construction of a case-insensitive file
+name hash.   While such a hash could also be form-insensitive if the hash
+contribution of every pre-composed character matched the combined
+contribution of the characters that it decomposes into.
 
-However, there is no obvious way that sort of hash could respect
-the canonical equivalence of multiple combining characters
-modifying the same base character, when those combining
-characters appear in different orders.  Addressing that issue
-would require a significantly different sort of hash, in which
-combining characters are treated differently from others, so that
-the re-ordering of a string of combining characters applying to the
-same base character will not affect the hash.
+However, there is no obvious way that sort of hash could respect the canonical
+equivalence of multiple combining characters modifying the same base
+character, when those combining characters appear in different orders.
+Addressing that issue would require a significantly different sort of hash,
+in which combining characters are treated differently from others, so that
+the re-ordering of a string of combining characters applying to the same base
+character will not affect the hash.
 
-In the hash discussed in {{IMPL-casei}}, there is no
-guarantee that the hash for multiple combining characters
-presented in different orders will be the same.   This is because
-typically such hashes implement some transformation on the
-existing hash, together with adding the new character to the hash
-being accumulated.  Such methods of hash construction will
-arrive at different values if
-the ordering of combining characters changes.
+In the hash discussed in {{IMPL-casei}}, there is no guarantee that the hash
+for multiple combining characters presented in different orders will be the
+same.   This is because typically such hashes implement some transformation
+on the existing hash, together with adding the new character to the hash
+being accumulated.  Such methods of hash construction will arrive at
+different values if the ordering of combining characters changes.
 
 In order to create a hash with the necessary characteristics, one can
-construct a separate sub-hash for composite character, consisting
-of one non-combining character (may be pre-composed) together with the
-set (possibly null) of combining characters immediately following it.
-Each such composed character, whether precomposed or not, will have
-its own sub-hash, which will be the same regardless of the order of
-the combining characters.
+construct a separate sub-hash for composite character, consisting of one
+non-combining character (may be pre-composed) together with the set
+(possibly null) of combining characters immediately following it. Each such
+composed character, whether precomposed or not, will have its own sub-hash,
+which will be the same regardless of the order of the combining characters.
 
-If the hash is to include case-insensitivity, special handling is
-needed to deal with issues arising from the handling of
-COMBINING GREEK YPOGEGRAMMENI (U+0345).   That combining character, as
-discussed in item EX6 of {{INFO-casei-ex}} is uppercased to
-the non-combining character GREEK CAPITAL LETTER IOTA (U+0399) which is
-in turn lowercased to the non-combining character GREEK SMALL
-LETTER IOTA (U+03B9).  As a result,  when computing a case-insensitive
-hash, when a base character is IOTA (of either case) and the previous
-base character is ALPHA, ETA, or OMEGA (of the same case as the IOTA),
-that IOTA is treated, for the purpose of defining the composite
+If the hash is to include case-insensitivity, special handling is needed to
+deal with issues arising from the handling of COMBINING GREEK YPOGEGRAMMENI
+(U+0345).   That combining character, as discussed in item EX6 of 
+{{INFO-casei-ex}} is uppercased to the non-combining character GREEK CAPITAL
+LETTER IOTA (U+0399) which is in turn lowercased to the non-combining
+character GREEK SMALL LETTER IOTA (U+03B9).  As a result,  when computing a
+case-insensitive hash, when a base character is IOTA (of either case) and the
+previous base character is ALPHA, ETA, or OMEGA (of the same case as the
+IOTA), that IOTA is treated, for the purpose of defining the composite
 characters for which to generate sub-hashes as if it were a combining
-character.  As a result, in this case a string of containing two
-composite characters will be treated as were a single
-composite character since the iota will be treated as if it were a
-combining character.   This string will have its own sub-hash, which
-will be the same regardless of the order of combining characters.
+character.  As a result, in this case a string of containing two composite
+characters will be treated as were a single composite character since the
+iota will be treated as if it were a combining character.   This string will
+have its own sub-hash, which will be the same regardless of the order of
+combining characters.
 
-The same outline will be followed for generating hashes which are
-to be form-insensitive (only) and for those which are to be both
-form-insensitive and case-insensitive. The initial value, representing
-the base character, will differ based on the type of hash, as
-discussed below.
+The same outline will be followed for generating hashes which are to be
+form-insensitive (only) and for those which are to be both form-insensitive
+and case-insensitive. The initial value, representing the base character,
+will differ based on the type of hash, as discussed below.
 
 
 * In the case-sensitive case, the initial value of the sub-hash
@@ -2085,183 +1985,166 @@ combining characters, values based on the particular combining
 character are combined with the hash being computed using a commutative
 associative operation, such as addition.
 
-To reduce false-positives, it is desirable to make the hash relatively
-wide (i.e. 32-64 bits) with the value based on base character in the
-upper portion of the word with the values for the combining
-characters appearing in a wide range of bit positions in the rest
-of the word to limit the degree that multiple distinct sets of
-combining characters have value that are the same.  Although the details
-will be affected by processor cache structure and the distribution
-of names processed, a
-table of values will be used but typical implementations will be
-different in the two cases we are dealing as described in {{FORMI-table}}.
+To reduce false-positives, it is desirable to make the hash relatively wide
+(i.e. 32-64 bits) with the value based on base character in the upper portion
+of the word with the values for the combining characters appearing in a wide
+range of bit positions in the rest of the word to limit the degree that
+multiple distinct sets of combining characters have value that are the same.
+Although the details will be affected by processor cache structure and the
+distribution of names processed, a table of values will be used but typical
+implementations will be different in the two cases we are dealing as
+described in {{FORMI-table}}.
 
-As each sub-hash is computed, it is combined into a name-wide hash.
-There is no need for this computation to be order-independent and it
-will probably include a circular shift of the hash computed so far
-to be added to the contribution of the sub-hash for the new base
-or composed character.
+As each sub-hash is computed, it is combined into a name-wide hash. There is
+no need for this computation to be order-independent and it will probably
+include a circular shift of the hash computed so far to be added to the
+contribution of the sub-hash for the new base or composed character.
 
-As described in {{FORMI-outline}} the appropriate
-full name hash will have the major role in excluding potential
-matches efficiently.  However, in some small number of cases, there
-will be a hash match in which the names to be compared are not
-equivalent, requiring more involved processing.   It is assumed below
-that a given name will be searching for potential cached matches
-within the directory so that for that name, on will be able retain
-information used to construct the full name hash (e.g. individual
-sub-hashes plus the bounds of each composite character.   These will
-be compared against cached entries where only the full (e.g. 64-bit)
-name hash and the name itself will be available for comparison.
+As described in {{FORMI-outline}} the appropriate full name hash will have the
+major role in excluding potential matches efficiently.  However, in some
+small number of cases, there will be a hash match in which the names to be
+compared are not equivalent, requiring more involved processing.   It is
+assumed below that a given name will be searching for potential cached
+matches within the directory so that for that name, on will be able retain
+information used to construct the full name hash (e.g. individual sub-hashes
+plus the bounds of each composite character.   These will be compared against
+cached entries where only the full (e.g. 64-bit) name hash and the name
+itself will be available for comparison.
 
 
 ### Character Tables {#FORMI-table}
 
-The per-character tables used in these algorithms have a number
-of type of entries for different types of characters.   In some
-cases, information for a given character type will be essentially
-the same whether the comparison is to be form-insensitive or case-
-insensitive.   In others, there will be differences.  Also, there
-may be entry types that only exist for particular types of
-comparisons.   In any case, some bits within the table entry will
-be devoted to representing the type of character and entry, with
-provisions for the following cases:
+The per-character tables used in these algorithms have a number of type of
+entries for different types of characters.   In some cases, information for a
+given character type will be essentially the same whether the comparison is
+to be form-insensitive or case- insensitive.   In others, there will be
+differences.  Also, there may be entry types that only exist for particular
+types of comparisons.   In any case, some bits within the table entry will be
+devoted to representing the type of character and entry, with provisions for
+the following cases:
 
 
-* For combining characters, the entry will provide information
-  about the character's contribution to the composite character
-  sub-hash in which it appears.
+* For combining characters, the entry will provide information about the
+  character's contribution to the composite character sub-hash in which it
+  appears.
 
-* For case-insensitive comparisons, there needs to be special
-  entries for characters, which, while not themselves combining
-  characters, are the case-insensitive equivalents of combining
-  characters.   An example of this situation is provided in item
-  EX6 within {{INFO-casei-ex}}.
+* For case-insensitive comparisons, there needs to be special entries for
+  characters, which, while not themselves combining characters, are the
+  case-insensitive equivalents of combining characters.   An example of this
+  situation is provided in item EX6 within {{INFO-casei-ex}}.
 
-* For pre-composed characters, the entry needs to provide the initial
-  hash value which is to be the basis for the sub-hash for the
-  name substring including contributions for the base character
-  together with contribution of included combining characters.
-  In addition, such entries will provide, separately, information
-  about the character's canonical decomposition.
+* For pre-composed characters, the entry needs to provide the initial hash
+  value which is to be the basis for the sub-hash for the name substring
+  including contributions for the base character together with contribution
+  of included combining characters. In addition, such entries will provide,
+  separately, information about the character's canonical decomposition.
 
-* For case-insensitive comparisons, there needs to be,
-  for base characters, entries assigning each base character to
-  the case-based equivalence class to which it belongs, although
-  such entries can be avoided if the equivalence class matches
-  the character (usually caseless and lowercase characters.
+* For case-insensitive comparisons, there needs to be, for base characters,
+  entries assigning each base character to the case-based equivalence class
+  to which it belongs, although such entries can be avoided if the
+  equivalence class matches the character (usually caseless and lowercase
+  characters.
 
-* Also, for case-insensitive comparisons, there will need
-  to be special entries for characters which multi-character
-  string as case-insensitive equivalent of the base character.
-  Examples of this situation are provided in items EX4 and EX5
-  within {{INFO-casei-ex}}.   Such entries will need to
-  have a hash-contribution that reflects the hash that would be
-  computed for the multi-character string.
+* Also, for case-insensitive comparisons, there will need to be special
+  entries for characters which multi-character string as case-insensitive
+  equivalent of the base character. Examples of this situation are provided
+  in items EX4 and EX5 within {{INFO-casei-ex}}.   Such entries will need to
+  have a hash-contribution that reflects the hash that would be computed for
+  the multi-character string.
 
-* For form-insensitive comparisons, there will be special
-  entries to provide special handling for those cases in which
-  there are two canonically equivalent single characters.  Such entries
-  do not exist for case-insensitive comparison since this situation
-  can be handled by a non-standard use of
-  case mapping for base characters by placing these two characters
-  in the same case-based equivalence
+* For form-insensitive comparisons, there will be special entries to provide
+  special handling for those cases in which there are two canonically
+  equivalent single characters.  Such entries do not exist for
+  case-insensitive comparison since this situation can be handled by a
+  non-standard use of case mapping for base characters by placing these two
+  characters in the same case-based equivalence
 
-In the common case in which a two-stage mapping will be used,
-there will be common groups of characters in which no table entry
-will be required, allowing a default entry type to be used for some
-character groups with entry
+In the common case in which a two-stage mapping will be used, there will be
+common groups of characters in which no table entry will be required,
+allowing a default entry type to be used for some character groups with entry
 contents easily calculable from the code point.
 
 
-* In the case form-insensitive comparison, this consists of all
-  base characters, with the hash contribution of the character
-  derivable by a pre-specified transformation of the code point value.
+* In the case form-insensitive comparison, this consists of all base
+  characters, with the hash contribution of the character derivable by a
+  pre-specified transformation of the code point value.
 
-* In the case case-insensitive comparison, this consists of all
-  base character which are either caseless or equivalence class
-  is the same as the code point, typically lowercase characters.
-  As in the form-insensitive case, the hash contribution of the
-  character is derivable by a pre-specified transformation of the
-  code point value, which matches, in this case, the id assigned
-  to the case-based equivalence class.
+* In the case case-insensitive comparison, this consists of all base character
+  which are either caseless or equivalence class is the same as the code
+  point, typically lowercase characters. As in the form-insensitive case, the
+  hash contribution of the character is derivable by a pre-specified
+  transformation of the code point value, which matches, in this case, the id
+  assigned to the case-based equivalence class.
 
 
 
 
 ### Outline of comparison {#FORMI-outline}
 
-We are assuming that comparisons will be based on the hash values
-computed as described in {{FORMI-hash}}, whether the
-comparison is to be form-insensitive or both case-insensitive and
-form-insensitive.
+We are assuming that comparisons will be based on the hash values computed as
+described in {{FORMI-hash}}, whether the comparison is to be form-insensitive
+or both case-insensitive and form-insensitive.
 
-To facilitate this comparison, the name hash will be stored with the
-names to be compared.
-As a result, when there is a need to investigate a new name and
-whether there are existing matches, it will be possible to search for
-matches with existing names cached for that directory, using a hash
-for the new name which is computed and compared to all the existing
-names, with the result that the detailed comparisons described in
-Appendices {{<FORMI-base}} and {{<FORMI-combining}} have to be done
-relatively rarely, since non-matching names together with matching
-hashes are likely to be atypical.
+To facilitate this comparison, the name hash will be stored with the names to
+be compared. As a result, when there is a need to investigate a new name and
+whether there are existing matches, it will be possible to search for matches
+with existing names cached for that directory, using a hash for the new name
+which is computed and compared to all the existing names, with the result
+that the detailed comparisons described in Appendices {{<FORMI-base}} and 
+{{<FORMI-combining}} have to be done relatively rarely, since non-matching
+names together with matching hashes are likely to be atypical.  **FIXME**
 
-Given the above, it is a reasonable assumption, which we will take
-note of in the sections below, that for one of the names to be
-compared, we will have access to data generated in the process of
-computing the name hash while for the other names, such data would
-have to be generated anew, when necessary.  When that data includes,
-as we expect it will, the offset and length of the string regions
-covered by each sub-hash, direct byte-by-byte comparisons between
-corresponding regions of the two strings can exclude the possibility
-of difference without invoking any detailed logic to deal with
-the possibility of canonical equivalence or case-based equivalence
-in the absence of identical name segment.
+Given the above, it is a reasonable assumption, which we will take note of in
+the sections below, that for one of the names to be compared, we will have
+access to data generated in the process of computing the name hash while for
+the other names, such data would have to be generated anew, when necessary.
+When that data includes, as we expect it will, the offset and length of the
+string regions covered by each sub-hash, direct byte-by-byte comparisons
+between corresponding regions of the two strings can exclude the possibility
+of difference without invoking any detailed logic to deal with the
+possibility of canonical equivalence or case-based equivalence in the absence
+of identical name segment.
 
 In the case in which the byte-by-byte comparisons fail, further
 analysis is necessary:
 
 
-* First, the associated base characters are compared, as is discussed
-  in {{FORMI-base}}.   When doing form-insensitive
-  comparison this is straightforward.  However, when case-insensitive
-  comparison is to be done, there is the possibility that the
-  sub-hash boundaries of the two comparands are different, requiring
-  that a common point in both comparands be found to resume
-  comparison after a successful match.   For either form of
-  comparison, if a mismatch is found at this point then the
-  comparison fails, while, if there is match, there must be a
-  comparison of any following combining characters, as described
-  below, before moving on to the region covered by the appropriate
-  sub-string covered by the appropriate next sub-hash for each
-  comparand.
+* First, the associated base characters are compared, as is discussed in 
+  {{FORMI-base}}.   When doing form-insensitive comparison this is
+  straightforward.  However, when case-insensitive comparison is to be done,
+  there is the possibility that the sub-hash boundaries of the two comparands
+  are different, requiring that a common point in both comparands be found to
+  resume comparison after a successful match.   For either form of
+  comparison, if a mismatch is found at this point then the comparison fails,
+  while, if there is match, there must be a comparison of any following
+  combining characters, as described below, before moving on to the region
+  covered by the appropriate sub-string covered by the appropriate next
+  sub-hash for each comparand.
 
-* If there is no mismatch as to the base characters, the set of
-  associated combining characters (might be null) must be compared,
-  as is discussed in {{FORMI-combining}}.  If a mismatch
-  is found at this point then the comparison fails.  This may be
-  because the sets of combining characters are different, because there
-  are multiple copies of the same combining character in one of the
-  string, or because the difference in combining character is not one
-  that maintains canonical equivalence (due to combining classes).
+* If there is no mismatch as to the base characters, the set of associated
+  combining characters (might be null) must be compared, as is discussed in {
+  {FORMI-combining}}.  If a mismatch is found at this point then the
+  comparison fails.  This may be because the sets of combining characters are
+  different, because there are multiple copies of the same combining
+  character in one of the string, or because the difference in combining
+  character is not one that maintains canonical equivalence (due to combining
+  classes).
 
-* When both comparisons show a match, the comparison resumes at the
-  next substring, using a byte-by-byte comparison initially.  If the
-  comparison cannot be resumed because one of the strings is
-  exhausted, the comparison terminate, succeeding only if both
-  strings are exhausted while failing if only one of the strings
-  is exhausted.
+* When both comparisons show a match, the comparison resumes at the next
+  substring, using a byte-by-byte comparison initially.  If the comparison
+  cannot be resumed because one of the strings is exhausted, the comparison
+  terminate, succeeding only if both strings are exhausted while failing if
+  only one of the strings is exhausted.
 
 
 ### Comparing Base Characters {#FORMI-base}
 
-In general, the task of comparing based characters is simple, using
-a table lookup using the numeric value of the initial character in
-the substring.   When doing form-insensitive comparison this is the
-base character associated with the initial (possibly pre-composed)
-character, while for case-insensitive comparison it is the case-based
-equivalence class associated with that character.
+In general, the task of comparing based characters is simple, using a table
+lookup using the numeric value of the initial character in the substring.
+When doing form-insensitive comparison this is the base character associated
+with the initial (possibly pre-composed) character, while for
+case-insensitive comparison it is the case-based equivalence class associated
+with that character.
 
 When doing case-insensitive comparison, issues may arise that result
 when there is a multi-character string that as the case- insensitive
@@ -2812,7 +2695,7 @@ be summarized in the following statements:
   about the server's internationalization-related handling of file
   names while Appendices {{<INFO-casei}} {{<INFO-norm}} discuss how a
   client might use more complete information provided by new
-  attributes.
+  attributes. **FIXME**
 
 In order to deal with all NFSv4 minor versions, this document
 follows the internationalization approach defined in RFC7530, with
@@ -2898,7 +2781,7 @@ the internationalization-related handling for that file system.
 That would allow clients to be aware of server choices in this area
 and could be adopted without disrupting existing clients and servers.
 Appendices {{<INFO-casei}} and {{<INFO-norm}} discuss the possible forms
-of such attributes.
+of such attributes. **FIXME**
 
 # Acknowledgments
 {: numbered="false"}
